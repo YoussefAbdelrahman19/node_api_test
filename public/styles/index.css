@@ -1,0 +1,38 @@
+.posts-container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+  }
+  
+  .post {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .post h2 {
+    margin: 0;
+    color: #333;
+  }
+  
+  .post h4 {
+    color: #666;
+  }
+  
+  .post p {
+    color: #444;
+  }
+  
+  .tags {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .tags li {
+    display: inline;
+    margin-right: 10px;
+    padding: 5px;
+    background-color: #eee;
+    border-radius: 5px;
+  }
+  

@@ -1,0 +1,45 @@
+[
+    {
+      "id": 1,
+      "title": "The Future of Sports",
+      "headline": "Exploring the Evolution of Sports in the Modern Era",
+      "body": "Sports have always been a significant part of human culture...",
+      "created_at": "2023-02-11",
+      "tags": ["Sports"],
+      "comments": [
+        {
+          "id": 101,
+          "created_at": "2023-02-13",
+          "author": "Test User A",
+          "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        {
+          "id": 102,
+          "created_at": "2023-02-14",
+          "author": "Test User B",
+          "body": "Vivamus blandit from odio a porttitor porttitor."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Tech and Business: A Synergistic Relationship",
+      "headline": "How Technology is Changing the Business Landscape",
+      "body": "In today's fast-paced world, technology and business are more intertwined than ever...",
+      "created_at": "2023-02-10",
+      "tags": ["Business", "Tech"],
+      "comments": [
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Global Economy Trends",
+      "headline": "Analyzing the Shifts in World Economy",
+      "body": "The global economy has been subject to various shifts and changes...",
+      "created_at": "2023-02-09",
+      "tags": ["Economy"],
+      "comments": [
+      ]
+    }
+  ]
+  
