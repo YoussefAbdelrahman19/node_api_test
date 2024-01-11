@@ -1,0 +1,228 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Posts API",
+      "version": "1.0.0",
+      "description": "API for managing posts"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000/api",
+        "description": "Development server"
+      }
+    ],
+    "paths": {
+      "/posts": {
+        "get": {
+          "summary": "List all posts",
+          "responses": {
+            "200": {
+              "description": "A list of posts",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Post"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "Create a new post",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Post"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Post created"
+            }
+          }
+        }
+      },
+      "/posts/{id}": {
+        "get": {
+          "summary": "Get a post by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Details of the post",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Post"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Post not found"
+            }
+          }
+        },
+        "put": {
+          "summary": "Update a post by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Post"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Post updated"
+            },
+            "404": {
+              "description": "Post not found"
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete a post by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Post deleted"
+            },
+            "404": {
+              "description": "Post not found"
+            }
+          }
+        }
+      },
+      "/posts/{id}/comments": {
+        "get": {
+          "summary": "Get comments for a post",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Comments of the post"
+            },
+            "404": {
+              "description": "Post not found"
+            }
+          }
+        }
+      },
+      "/tags/{name}": {
+        "get": {
+          "summary": "Get posts by tag",
+          "parameters": [
+            {
+              "name": "name",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Posts with the specified tag"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Post": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "title": {
+              "type": "string"
+            },
+            "body": {
+              "type": "string"
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "comments": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Comment"
+              }
+            }
+          }
+        },
+        "Comment": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "author": {
+              "type": "string"
+            },
+            "body": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+  
